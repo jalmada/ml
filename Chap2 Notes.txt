@@ -1,0 +1,23 @@
+Housing Exmple:
+    - Supervised Learning.
+    - Regression task
+    - Multivariate Regression
+    - Batch Learning
+
+Note: If the dataset is huge the batch could be splited using MapReduce technique.
+
+Selecting a performance measure.
+
+Root Mean Squar Error (RMSE)
+Gives an Idea of how much error a system makes in its predictions.
+Higher wait for larger errors.
+    - See equation on book.
+    - m = number of data rows in the data set (instancea).
+    - x^(i) = vecto with the properties at the row i
+    - X is a matrix with the values the dataset?
+    - h = Prediction Function
+    - y^(i) = the expected result after aplying the hypotesis
+
+When having too many outliers maybe the MAE (Mean Absolute Error/Average Absolute Deviation) could be a better option.
+
+RMSE ignores little errors and show big ones, also is good when having data in a bell shape curve.
