@@ -1,0 +1,38 @@
+Load a CSV:
+    pd.read_csv(<csv_path>)
+
+Look at the fist 5 records:
+    <data>.head()
+
+Get the info for the loaded data:
+    <data>.info()
+
+Get the count of distinc values in a pandas vector/column
+    <data>["<column name>"].value_counts()
+    Note: null values are ignored
+
+Get more calcualted info from the data set, like count, mean, std, min, max, 25%, 50%, 75%
+    <data>.describe()
+
+Create a stratified category
+    pd.cut(<dataset>[<column to categorize>], bins=[bin1, bin2,...], labels = [lab1, lab2,....])
+
+Create a test and train sets win the correct distribution of categories
+    Scikit-learn's: StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+
+Plot from the data set
+    housing.plot(kind="scatter", x="longitude", y="latitude", alpha=0.1)
+    --- or ---
+    housing.plot(kind="scatter", x="longitude", y="latitude", alpha=0.4,
+    s=housing["population"]/100, label="population", figsize=(10,7),
+    c="median_house_value", cmap=plt.get_cmap("jet"), colorbar=True,
+    sharex=False)
+    plt.legend()
+
+Get all attributes correlation matrix
+    corr_matrix = housing.corr()
+
+Using Pandas use show a scatter correlation between attributes.
+    attributes = ["median_house_value", "median_income", "total_rooms",
+              "housing_median_age"]
+    scatter_matrix(housing[attributes], figsize=(12, 8))

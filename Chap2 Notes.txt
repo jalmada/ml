@@ -1,3 +1,10 @@
+1. Cleanup data
+    1. Select a Performance Measure.
+    2. Create a Train and Test sets.
+    3. Define strata/categories if needed for continous values, setting an appropiate range.. 
+    4. Do stratified samplin based on the new category
+
+
 Housing Exmple:
     - Supervised Learning.
     - Regression task
@@ -6,7 +13,7 @@ Housing Exmple:
 
 Note: If the dataset is huge the batch could be splited using MapReduce technique.
 
-Selecting a performance measure.
+- Selecting a performance measure.
 
 Root Mean Squar Error (RMSE)
 Gives an Idea of how much error a system makes in its predictions.
@@ -21,3 +28,35 @@ Higher wait for larger errors.
 When having too many outliers maybe the MAE (Mean Absolute Error/Average Absolute Deviation) could be a better option.
 
 RMSE ignores little errors and show big ones, also is good when having data in a bell shape curve.
+
+- Getting the data
+
+Tail heavy distributions affect an accurrate prediction, this data needs to be handled. Its better to get a bell shaped curve
+
+- Create a Test set.
+    Before doing anything else get a subset of the data and save it a a test set, we shouldnt look at it at all.
+    Normaly a test set is about 20% of the total data
+
+    Spliting the data can be done randomly, using an index in the data set or an Id.
+    Scikit-learn provides its own functions for spliting a data set (train_test_split), you can pass more than one data set and it will split both based on the same indices. this is helpful if the labels are in another dataset.
+
+    When sampling we need to be sure that all the variations are represented, its ok for big datasets
+
+- Add Categories or strata 
+
+    Stratified Sampling: Get a representative sample of the current data distribution, ex: if the us pop is 58% female and 42% male the sample should meet that ratio
+    This homogeneous groups are called strata
+
+- Remove  Categories and strata so the data is back to normal
+
+- Look for Correlations
+
+    Using the standard correlation coefficient (Pearson's r), between all the attributes.
+    This is only for linear correlations as non linear could be completely missed
+    correlation foes from 1 to -1, 
+        1 being a strong positive correlation (the more something the more something else)
+        0 not having a correlation betwenn 2 attributes.
+        -1 being a strong negative correlation te more something the less something else)
+
+
+- Experimenting with Attributes combinations.
